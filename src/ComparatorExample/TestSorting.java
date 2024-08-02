@@ -2,6 +2,7 @@ package ComparatorExample;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class TestSorting {
@@ -21,7 +22,7 @@ public class TestSorting {
 //			}
 //		});
 //		
-        developers.sort((Developer arg1, Developer arg2) -> arg1.getAge() - arg2.getAge());
+        developers.sort(Comparator.comparingInt(Developer::getAge));
 
         System.out.println("After Sort");
         developers.forEach(System.out::println);
