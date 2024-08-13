@@ -25,7 +25,7 @@ public class Anagram {
         for (int i = 0; i < s.length(); i++) {
 
             /*
-                We find the occurrence of the char and 1 as it was initially a zero
+                We find the occurrence of the char and add 1 as it was initially a zero
                 e.g. if we had char 'b' returned it'll be
                  'b' - 'a'  => 98-97 = 1
                  so at store[1] = 0+1 = 1: now we know for be we have one occurrence
