@@ -31,7 +31,7 @@ public class ValidParentheses {
                     if (previouslyAddedBracket == bracketMapper.get(character)){
                         brackets.pop();
                     }else return false;
-                }
+                }else return false;
             }else{
                 // We add the opening bracket
                 brackets.push(character);
@@ -62,5 +62,8 @@ public class ValidParentheses {
 
         //Expect false
         System.out.println(validParentheses.isValid("[(])"));
+
+        //Expect false
+        System.out.println(validParentheses.isValid("]]"));
     }
 }
