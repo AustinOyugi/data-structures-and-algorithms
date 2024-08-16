@@ -1,4 +1,4 @@
-package arrays;
+package stack;
 
 import java.util.Comparator;
 import java.util.EmptyStackException;
