@@ -1,6 +1,9 @@
 package stack;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Stack;
 
 /*
    @author Austin Oyugi
@@ -9,22 +12,35 @@ import java.util.*;
 */
 public class CarFleet {
 
+    public static void main(String[] args) {
+        CarFleet carFleet = new CarFleet();
+
+        //Expect 3
+        System.out.println(carFleet.carFleet(10, new int[]{4, 1, 0, 7}, new int[]{2, 2, 1, 1}));
+
+        //Expect 1
+        System.out.println(carFleet.carFleet(10, new int[]{1, 4}, new int[]{3, 2}));
+
+        //Expect 2
+        System.out.println(carFleet.carFleet(10, new int[]{6, 8}, new int[]{3, 2}));
+    }
+
     public int carFleet(int target, int[] position, int[] speed) {
 
         List<double[]> carGroup = new ArrayList<>();
 
         // We group the values
-        for (int i = 0; i < position.length; i++){
+        for (int i = 0; i < position.length; i++) {
             double[] carEntry = new double[3];
 
             //position
             carEntry[0] = position[i];
 
             //speed
-            carEntry[1] = speed [i];
+            carEntry[1] = speed[i];
 
             //time it takes
-            carEntry[2] = (double) (target - position[i]) /speed[i];
+            carEntry[2] = (double) (target - position[i]) / speed[i];
 
             carGroup.add(carEntry);
         }
@@ -34,7 +50,7 @@ public class CarFleet {
 
         Stack<double[]> evaluationStack = new Stack<>();
 
-        for (double[] car : carGroup){
+        for (double[] car : carGroup) {
 
             if (evaluationStack.isEmpty())
                 evaluationStack.push(car);
@@ -50,18 +66,5 @@ public class CarFleet {
         }
 
         return evaluationStack.size();
-    }
-
-    public static void main(String[] args) {
-        CarFleet carFleet = new CarFleet();
-
-        //Expect 3
-        System.out.println(carFleet.carFleet(10, new int[]{4,1,0,7},new int[]{2,2,1,1}));
-
-        //Expect 1
-        System.out.println(carFleet.carFleet(10, new int[]{1,4},new int[]{3,2}));
-
-        //Expect 2
-        System.out.println(carFleet.carFleet(10, new int[]{6,8},new int[]{3,2}));
     }
 }
