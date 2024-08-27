@@ -1,6 +1,9 @@
 package arrays;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 /*
    @author Austin Oyugi
@@ -8,6 +11,40 @@ import java.util.*;
    @mail austinoyugi@gmail.com
 */
 public class ValidSudoku2 {
+
+    public static void main(String[] args) {
+        char[][] sudoko1 = new char[][]{
+                {'1', '2', '.', '.', '3', '.', '.', '.', '.'},
+                {'4', '.', '.', '5', '.', '.', '.', '.', '.'},
+                {'.', '9', '8', '.', '.', '.', '.', '.', '3'},
+                {'5', '.', '.', '.', '6', '.', '.', '.', '4'},
+                {'.', '.', '.', '8', '.', '3', '.', '.', '5'},
+                {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+                {'.', '.', '.', '.', '.', '.', '2', '.', '.'},
+                {'.', '.', '.', '4', '1', '9', '.', '.', '8'},
+                {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
+        };
+
+        char[][] sudoko2 = new char[][]{
+                {'1', '2', '.', '.', '3', '.', '.', '.', '.'},
+                {'4', '.', '.', '5', '.', '.', '.', '.', '.'},
+                {'.', '9', '1', '.', '.', '.', '.', '.', '3'},
+                {'5', '.', '.', '.', '6', '.', '.', '.', '4'},
+                {'.', '.', '.', '8', '.', '3', '.', '.', '5'},
+                {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+                {'.', '.', '.', '.', '.', '.', '2', '.', '.'},
+                {'.', '.', '.', '4', '1', '9', '.', '.', '8'},
+                {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
+        };
+
+        ValidSudoku2 validSudoku = new ValidSudoku2();
+
+        // Expect true
+        System.out.println("Is Valid:  " + validSudoku.isValidSudoku(sudoko1));
+
+        //Expect false
+        System.out.println("Is Valid:  " + validSudoku.isValidSudoku(sudoko2));
+    }
 
     public boolean isValidSudoku(char[][] board) {
         Map<Integer, Set<Character>> cols = new HashMap<>();
@@ -31,39 +68,5 @@ public class ValidSudoku2 {
             }
         }
         return true;
-    }
-
-    public static void main(String[] args) {
-        char[][] sudoko1 =  new char[][]{
-                {'1','2','.','.','3','.','.','.','.'},
-                {'4','.','.','5','.','.','.','.','.'},
-                {'.','9','8','.','.','.','.','.','3'},
-                {'5','.','.','.','6','.','.','.','4'},
-                {'.','.','.','8','.','3','.','.','5'},
-                {'7','.','.','.','2','.','.','.','6'},
-                {'.','.','.','.','.','.','2','.','.'},
-                {'.','.','.','4','1','9','.','.','8'},
-                {'.','.','.','.','8','.','.','7','9'}
-        };
-
-        char[][] sudoko2 =  new char[][]{
-                {'1','2','.','.','3','.','.','.','.'},
-                {'4','.','.','5','.','.','.','.','.'},
-                {'.','9','1','.','.','.','.','.','3'},
-                {'5','.','.','.','6','.','.','.','4'},
-                {'.','.','.','8','.','3','.','.','5'},
-                {'7','.','.','.','2','.','.','.','6'},
-                {'.','.','.','.','.','.','2','.','.'},
-                {'.','.','.','4','1','9','.','.','8'},
-                {'.','.','.','.','8','.','.','7','9'}
-        };
-
-        ValidSudoku2 validSudoku = new ValidSudoku2();
-
-        // Expect true
-        System.out.println("Is Valid:  " +  validSudoku.isValidSudoku(sudoko1));
-
-        //Expect false
-        System.out.println("Is Valid:  " +  validSudoku.isValidSudoku(sudoko2));
     }
 }

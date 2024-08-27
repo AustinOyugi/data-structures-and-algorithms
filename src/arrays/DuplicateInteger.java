@@ -11,19 +11,19 @@ import java.util.Set;
 */
 public class DuplicateInteger {
 
-    public static boolean hasDuplicates(int[] nums){
+    public static boolean hasDuplicates(int[] nums) {
         Set<Integer> numsSet = new HashSet<>();
-        for (int num: nums){
+        for (int num : nums) {
             numsSet.add(num);
         }
         return nums.length != numsSet.size();
     }
 
     public static void main(String[] args) {
-        int[] test1 = {1, 2, 3 ,4 , 5};
+        int[] test1 = {1, 2, 3, 4, 5};
         assert !hasDuplicates(test1);
 
-        int[] test2 = {1, 2, 2, 3 ,4 , 5};
+        int[] test2 = {1, 2, 2, 3, 4, 5};
         assert hasDuplicates(test1);
     }
 }

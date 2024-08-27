@@ -1,6 +1,8 @@
 package stack;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
 
 /*
    @author Austin Oyugi
@@ -8,39 +10,6 @@ import java.util.*;
    @mail austinoyugi@gmail.com
 */
 public class ValidParentheses {
-    public boolean isValid(String s) {
-
-        if (s.isEmpty()) return false;
-        if (s.length() % 2 != 0) return false;
-
-        Map<Character,Character> bracketMapper = new HashMap<>(3);
-        bracketMapper.put(')','(');
-        bracketMapper.put('}','{');
-        bracketMapper.put(']','[');
-
-        Stack<Character> brackets = new Stack<>();
-
-        for (int i =0; i<s.length() ; i++){
-            char character = s.charAt(i);
-
-            // If the character is a closing bracket
-            if (bracketMapper.containsKey(character)){
-                // If it's a closing we expect an opening bracket already present
-                if (!brackets.isEmpty()){
-                    char previouslyAddedBracket = brackets.peek();
-                    if (previouslyAddedBracket == bracketMapper.get(character)){
-                        brackets.pop();
-                    }else return false;
-                }else return false;
-            }else{
-                // We add the opening bracket
-                brackets.push(character);
-            }
-        }
-
-        return brackets.isEmpty();
-    }
-
     public static void main(String[] args) {
 
         ValidParentheses validParentheses = new ValidParentheses();
@@ -65,5 +34,38 @@ public class ValidParentheses {
 
         //Expect false
         System.out.println(validParentheses.isValid("]]"));
+    }
+
+    public boolean isValid(String s) {
+
+        if (s.isEmpty()) return false;
+        if (s.length() % 2 != 0) return false;
+
+        Map<Character, Character> bracketMapper = new HashMap<>(3);
+        bracketMapper.put(')', '(');
+        bracketMapper.put('}', '{');
+        bracketMapper.put(']', '[');
+
+        Stack<Character> brackets = new Stack<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            char character = s.charAt(i);
+
+            // If the character is a closing bracket
+            if (bracketMapper.containsKey(character)) {
+                // If it's a closing we expect an opening bracket already present
+                if (!brackets.isEmpty()) {
+                    char previouslyAddedBracket = brackets.peek();
+                    if (previouslyAddedBracket == bracketMapper.get(character)) {
+                        brackets.pop();
+                    } else return false;
+                } else return false;
+            } else {
+                // We add the opening bracket
+                brackets.push(character);
+            }
+        }
+
+        return brackets.isEmpty();
     }
 }

@@ -9,6 +9,20 @@ import java.util.*;
 */
 public class GroupedAnagram {
 
+    public static void main(String[] args) {
+        GroupedAnagram groupedAnagram = new GroupedAnagram();
+
+        //Expect [["hat"],["act", "cat"],["stop", "pots", "tops"]]
+        System.out.println(groupedAnagram.groupAnagrams(
+                new String[]{"act", "pots", "tops", "cat", "stop", "hat"}));
+
+        //Expect [["x"]]
+        System.out.println(groupedAnagram.groupAnagrams(new String[]{"x"}));
+
+        //Expect [[""]]
+        System.out.println(groupedAnagram.groupAnagrams(new String[]{""}));
+    }
+
     public List<List<String>> groupAnagrams(String[] strs) {
 
         /*
@@ -16,7 +30,7 @@ public class GroupedAnagram {
             Key: .toString() of the frequencies -> We do toString because it's easier to create a hash
             Value: Matching string
          */
-        Map<String,List<String>> frequencyMap = new HashMap<>();
+        Map<String, List<String>> frequencyMap = new HashMap<>();
 
         /*
             Loop through all the strings available O(n)
@@ -60,19 +74,5 @@ public class GroupedAnagram {
             Return the values
          */
         return frequencyMap.values().stream().toList();
-    }
-
-    public static void main(String[] args) {
-        GroupedAnagram groupedAnagram = new GroupedAnagram();
-
-        //Expect [["hat"],["act", "cat"],["stop", "pots", "tops"]]
-        System.out.println(groupedAnagram.groupAnagrams(
-                new String[]{"act","pots","tops","cat","stop","hat"}));
-
-        //Expect [["x"]]
-        System.out.println(groupedAnagram.groupAnagrams(new String[]{"x"}));
-
-        //Expect [[""]]
-        System.out.println(groupedAnagram.groupAnagrams(new String[]{""}));
     }
 }

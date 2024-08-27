@@ -1,8 +1,8 @@
 package stack;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-import java.util.ArrayList;
 
 /*
    @author Austin Oyugi
@@ -10,6 +10,11 @@ import java.util.ArrayList;
    @mail austinoyugi@gmail.com
 */
 public class GenerateParentheses {
+
+    public static void main(String[] args) {
+        GenerateParentheses generateParentheses = new GenerateParentheses();
+        System.out.println(generateParentheses.generateParenthesis(3));
+    }
 
     public List<String> generateParenthesis(int n) {
         List<String> res = new ArrayList<>();
@@ -60,10 +65,5 @@ public class GenerateParentheses {
             // We pop to clean up the stack as we are done with the backtracking.
             stack.pop();
         }
-    }
-
-    public static void main(String[] args) {
-        GenerateParentheses generateParentheses = new GenerateParentheses();
-        System.out.println(generateParentheses.generateParenthesis(3));
     }
 }

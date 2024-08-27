@@ -9,6 +9,40 @@ import java.util.*;
 */
 public class ValidSudoku {
 
+    public static void main(String[] args) {
+        char[][] sudoko1 = new char[][]{
+                {'1', '2', '.', '.', '3', '.', '.', '.', '.'},
+                {'4', '.', '.', '5', '.', '.', '.', '.', '.'},
+                {'.', '9', '8', '.', '.', '.', '.', '.', '3'},
+                {'5', '.', '.', '.', '6', '.', '.', '.', '4'},
+                {'.', '.', '.', '8', '.', '3', '.', '.', '5'},
+                {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+                {'.', '.', '.', '.', '.', '.', '2', '.', '.'},
+                {'.', '.', '.', '4', '1', '9', '.', '.', '8'},
+                {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
+        };
+
+        char[][] sudoko2 = new char[][]{
+                {'1', '2', '.', '.', '3', '.', '.', '.', '.'},
+                {'4', '.', '.', '5', '.', '.', '.', '.', '.'},
+                {'.', '9', '1', '.', '.', '.', '.', '.', '3'},
+                {'5', '.', '.', '.', '6', '.', '.', '.', '4'},
+                {'.', '.', '.', '8', '.', '3', '.', '.', '5'},
+                {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+                {'.', '.', '.', '.', '.', '.', '2', '.', '.'},
+                {'.', '.', '.', '4', '1', '9', '.', '.', '8'},
+                {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
+        };
+
+        ValidSudoku validSudoku = new ValidSudoku();
+
+        // Expect true
+        System.out.println("Is Valid:  " + validSudoku.isValidSudoku(sudoko1));
+
+        //Expect false
+        System.out.println("Is Valid:  " + validSudoku.isValidSudoku(sudoko2));
+    }
+
     public boolean isValidSudoku(char[][] board) {
 
         /*
@@ -23,15 +57,15 @@ public class ValidSudoku {
 
         //Stores the rows
         // This will act as the first step of validation
-       Map<Integer, List<Character>> rows = new HashMap<>();
+        Map<Integer, List<Character>> rows = new HashMap<>();
 
-       // Store all the columns
-       Map<Integer, List<Character>> columns = new HashMap<>();
+        // Store all the columns
+        Map<Integer, List<Character>> columns = new HashMap<>();
 
 
-       // Store all 3 * 3 sub boxes
-       Map<String, List<Character>> squareSubBoxes = new HashMap<>();
-       // To reduce complexity, we already know the grouping of the square boxes
+        // Store all 3 * 3 sub boxes
+        Map<String, List<Character>> squareSubBoxes = new HashMap<>();
+        // To reduce complexity, we already know the grouping of the square boxes
         // To be truthful, I don't know the formula for this, but either way... there's never one solution
         // We can have a better solution @see ValidSudoku2
         squareSubBoxes.put("0,1,2:0,1,2", new ArrayList<>());
@@ -45,18 +79,18 @@ public class ValidSudoku {
         squareSubBoxes.put("6,7,8:6,7,8", new ArrayList<>());
 
         // Prints rows
-        for(int i =0 ; i< board.length ; i++){
-            for(int j = 0; j< board[i].length ; j++){
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
                 char value = board[i][j];
 
 
                 // The first step is to confirm that there is no duplicate in the rows
-                List<Character> rowList = rows.getOrDefault(i,new ArrayList<>());
+                List<Character> rowList = rows.getOrDefault(i, new ArrayList<>());
                 // We do not need to proceed if the row storage fails
-                if (value != '.'  && rowList.contains(value)) return false;
+                if (value != '.' && rowList.contains(value)) return false;
                 else {
                     rowList.add(value);
-                    rows.put(i,rowList);
+                    rows.put(i, rowList);
                 }
 
 
@@ -64,11 +98,11 @@ public class ValidSudoku {
                 /*e.g
                         Column1 :  1[0,0],  4[1,0] ,  .[2,0]
                  */
-                List<Character> columnList = columns.getOrDefault(j,new ArrayList<>());
-                if (value != '.'  && columnList.contains(value)) return false;
+                List<Character> columnList = columns.getOrDefault(j, new ArrayList<>());
+                if (value != '.' && columnList.contains(value)) return false;
                 else {
                     columnList.add(value);
-                    columns.put(j,columnList);
+                    columns.put(j, columnList);
                 }
 
 
@@ -113,52 +147,18 @@ public class ValidSudoku {
                                     columnKeys.contains(String.valueOf(finalJ));
                         }).findFirst();
 
-                if (subBoxKey.isPresent()){
+                if (subBoxKey.isPresent()) {
                     List<Character> squareBoxList = squareSubBoxes.get(subBoxKey.get());
 
-                    if ( value != '.'  && squareBoxList.contains(value)) return false;
+                    if (value != '.' && squareBoxList.contains(value)) return false;
                     else {
                         squareBoxList.add(value);
-                        squareSubBoxes.put(subBoxKey.get(),squareBoxList);
+                        squareSubBoxes.put(subBoxKey.get(), squareBoxList);
                     }
                 }
             }
         }
 
         return true;
-    }
-
-    public static void main(String[] args) {
-        char[][] sudoko1 =  new char[][]{
-                {'1','2','.','.','3','.','.','.','.'},
-                {'4','.','.','5','.','.','.','.','.'},
-                {'.','9','8','.','.','.','.','.','3'},
-                {'5','.','.','.','6','.','.','.','4'},
-                {'.','.','.','8','.','3','.','.','5'},
-                {'7','.','.','.','2','.','.','.','6'},
-                {'.','.','.','.','.','.','2','.','.'},
-                {'.','.','.','4','1','9','.','.','8'},
-                {'.','.','.','.','8','.','.','7','9'}
-        };
-
-        char[][] sudoko2 =  new char[][]{
-                {'1','2','.','.','3','.','.','.','.'},
-                {'4','.','.','5','.','.','.','.','.'},
-                {'.','9','1','.','.','.','.','.','3'},
-                {'5','.','.','.','6','.','.','.','4'},
-                {'.','.','.','8','.','3','.','.','5'},
-                {'7','.','.','.','2','.','.','.','6'},
-                {'.','.','.','.','.','.','2','.','.'},
-                {'.','.','.','4','1','9','.','.','8'},
-                {'.','.','.','.','8','.','.','7','9'}
-        };
-
-        ValidSudoku validSudoku = new ValidSudoku();
-
-        // Expect true
-        System.out.println("Is Valid:  " +  validSudoku.isValidSudoku(sudoko1));
-
-        //Expect false
-        System.out.println("Is Valid:  " +  validSudoku.isValidSudoku(sudoko2));
     }
 }

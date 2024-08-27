@@ -10,6 +10,20 @@ import java.util.Stack;
 */
 public class DailyTemperaturesImproved {
 
+    public static void main(String[] args) {
+
+        DailyTemperaturesImproved dailyTemperatures = new DailyTemperaturesImproved();
+
+        // Expect 1,4,1,2,1,0,0]
+        System.out.println(Arrays.toString(dailyTemperatures.dailyTemperatures(new int[]{30, 38, 30, 36, 35, 40, 28})));
+
+        // Expect [0,0,0]
+        System.out.println(Arrays.toString(dailyTemperatures.dailyTemperatures(new int[]{22, 21, 20})));
+
+        // Expect [1,1,1,0]
+        System.out.println(Arrays.toString(dailyTemperatures.dailyTemperatures(new int[]{30, 40, 50, 60})));
+    }
+
     public int[] dailyTemperatures(int[] temperatures) {
 
         // We initialize an array with zeros
@@ -23,17 +37,17 @@ public class DailyTemperaturesImproved {
         Stack<int[]> evaluationStack = new Stack<>();
 
         // We iterate the temp array in O(n)
-        for (int i =0; i<temperatures.length; i++){
+        for (int i = 0; i < temperatures.length; i++) {
 
             int currentTemp = temperatures[i];
 
             // Perform calculations using monotonically decreasing algo
-            if (!evaluationStack.isEmpty()){
+            if (!evaluationStack.isEmpty()) {
 
                 int[] topElement = evaluationStack.peek();
 
                 // If the current index temp is greater than the top element temp
-                while (!evaluationStack.isEmpty() && currentTemp > topElement[0]){
+                while (!evaluationStack.isEmpty() && currentTemp > topElement[0]) {
                     // We remove the value from the top of the stack
                     evaluationStack.pop();
 
@@ -54,20 +68,6 @@ public class DailyTemperaturesImproved {
         }
 
         return results;
-    }
-
-    public static void main(String[] args) {
-
-        DailyTemperaturesImproved dailyTemperatures = new DailyTemperaturesImproved();
-
-        // Expect 1,4,1,2,1,0,0]
-        System.out.println(Arrays.toString(dailyTemperatures.dailyTemperatures(new int[]{30, 38, 30, 36, 35, 40, 28})));
-
-        // Expect [0,0,0]
-        System.out.println(Arrays.toString(dailyTemperatures.dailyTemperatures(new int[]{22,21,20})));
-
-        // Expect [1,1,1,0]
-        System.out.println(Arrays.toString(dailyTemperatures.dailyTemperatures(new int[]{30,40,50,60})));
     }
 
 

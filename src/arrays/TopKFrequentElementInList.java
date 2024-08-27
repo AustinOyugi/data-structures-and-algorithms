@@ -11,6 +11,19 @@ import java.util.Map;
 */
 public class TopKFrequentElementInList {
 
+    public static void main(String[] args) {
+        TopKFrequentElementInList topKFrequentElementInList = new TopKFrequentElementInList();
+
+        //Expect [2,3]
+        System.out.println(Arrays.toString(topKFrequentElementInList.topKFrequent(new int[]{1, 2, 2, 3, 3, 3}, 2)));
+
+        //Expect [7]
+        System.out.println(Arrays.toString(topKFrequentElementInList.topKFrequent(new int[]{7, 7}, 1)));
+
+        //Expect [1,2]
+        System.out.println(Arrays.toString(topKFrequentElementInList.topKFrequent(new int[]{1, 2}, 2)));
+    }
+
     public int[] topKFrequent(int[] nums, int k) {
 
         /*
@@ -21,10 +34,10 @@ public class TopKFrequentElementInList {
         /*
             Insert the frequencies
          */
-        for (int num: nums){
-             Integer value = frequencyCounter.putIfAbsent(num, 1);
-             if (value !=null)
-                 frequencyCounter.computeIfPresent(num, (key,v) -> v +1);
+        for (int num : nums) {
+            Integer value = frequencyCounter.putIfAbsent(num, 1);
+            if (value != null)
+                frequencyCounter.computeIfPresent(num, (key, v) -> v + 1);
         }
 
         frequencyCounter = frequencyCounter.entrySet()
@@ -55,24 +68,11 @@ public class TopKFrequentElementInList {
 
         int counter = 0;
 
-        for (int key: frequencyCounter.keySet()){
+        for (int key : frequencyCounter.keySet()) {
             values[counter] = key;
-            counter ++;
+            counter++;
         }
 
         return values;
-    }
-
-    public static void main(String[] args) {
-        TopKFrequentElementInList topKFrequentElementInList = new TopKFrequentElementInList();
-
-        //Expect [2,3]
-        System.out.println(Arrays.toString(topKFrequentElementInList.topKFrequent(new int[]{1, 2, 2, 3, 3, 3}, 2)));
-
-        //Expect [7]
-        System.out.println(Arrays.toString(topKFrequentElementInList.topKFrequent(new int[]{7, 7}, 1)));
-
-        //Expect [1,2]
-        System.out.println(Arrays.toString(topKFrequentElementInList.topKFrequent(new int[]{1,2}, 2)));
     }
 }

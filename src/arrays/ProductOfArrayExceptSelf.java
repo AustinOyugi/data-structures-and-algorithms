@@ -9,6 +9,19 @@ import java.util.Arrays;
 */
 public class ProductOfArrayExceptSelf {
 
+    public static void main(String[] args) {
+        ProductOfArrayExceptSelf exceptSelf = new ProductOfArrayExceptSelf();
+
+        //Expect [48,24,12,8]
+        System.out.println(Arrays.toString(exceptSelf.productExceptSelfWithoutDivision(new int[]{1, 2, 4, 6})));
+
+        //Expect [24, 12, 8, 6]
+        System.out.println(Arrays.toString(exceptSelf.productExceptSelfWithoutDivision(new int[]{1, 2, 3, 4})));
+
+        //Expect [0,-6,0,0,0]
+        System.out.println(Arrays.toString(exceptSelf.productExceptSelfWithoutDivision(new int[]{-1, 0, 1, 2, 3})));
+    }
+
     public int[] productExceptSelfWithoutDivision(int[] nums) {
 
         int[] prePostFixStore = new int[nums.length];
@@ -23,7 +36,7 @@ public class ProductOfArrayExceptSelf {
             i=3 left=6  =>   arr[1,1,2,6]   => left = 6*4=24 :: i=4  :: Ends here
          */
         int left = 1;
-        for (int i=0; i<=nums.length-1; i++){
+        for (int i = 0; i <= nums.length - 1; i++) {
             prePostFixStore[i] = left;
             left = nums[i] * left;
         }
@@ -41,25 +54,12 @@ public class ProductOfArrayExceptSelf {
             i=3 right = 24=> prePostFixStore[1*24,12,8,6] = prePostFixStore[24,12,8,6] = right = 24 * 1
          */
         int right = 1;
-        for (int i = nums.length -1; i >= 0; i--){
+        for (int i = nums.length - 1; i >= 0; i--) {
             prePostFixStore[i] = prePostFixStore[i] * right;
             right *= nums[i];
         }
 
         return prePostFixStore;
-    }
-
-    public static void main(String[] args) {
-        ProductOfArrayExceptSelf exceptSelf = new ProductOfArrayExceptSelf();
-
-        //Expect [48,24,12,8]
-        System.out.println(Arrays.toString(exceptSelf.productExceptSelfWithoutDivision(new int[]{1,2,4,6})));
-
-        //Expect [24, 12, 8, 6]
-        System.out.println(Arrays.toString(exceptSelf.productExceptSelfWithoutDivision(new int[]{1,2,3,4})));
-
-        //Expect [0,-6,0,0,0]
-        System.out.println(Arrays.toString(exceptSelf.productExceptSelfWithoutDivision(new int[]{-1,0,1,2,3})));
     }
 
 }

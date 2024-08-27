@@ -10,6 +10,15 @@ import java.util.Map;
 */
 public class Anagram {
 
+    public static void main(String[] args) {
+
+        Anagram anagram = new Anagram();
+
+        System.out.println(anagram.isAnagram("racecar", "carrace"));
+
+        System.out.println(anagram.isAnagram("jar", "jam"));
+    }
+
     public boolean isAnagram(String s, String t) {
 
         /*
@@ -62,29 +71,20 @@ public class Anagram {
         if (sChars.length != tChars.length) return false;
 
         Map<String, Integer> sCharsMap = new HashMap<>();
-        fillMap(sCharsMap,sChars);
+        fillMap(sCharsMap, sChars);
 
         Map<String, Integer> tCharsMap = new HashMap<>();
-        fillMap(tCharsMap,tChars);
+        fillMap(tCharsMap, tChars);
 
         return sCharsMap.equals(tCharsMap);
     }
 
-    public void fillMap(Map<String,Integer> objectMap, char[] chars){
-        for (char sChar: chars){
+    public void fillMap(Map<String, Integer> objectMap, char[] chars) {
+        for (char sChar : chars) {
             Integer currentValue = objectMap.putIfAbsent(String.valueOf(sChar), 1);
             if (currentValue != null)
-                objectMap.computeIfPresent(String.valueOf(sChar), (k, v) -> v  + 1 );
+                objectMap.computeIfPresent(String.valueOf(sChar), (k, v) -> v + 1);
         }
-    }
-
-    public static void main(String[] args) {
-
-        Anagram anagram = new Anagram();
-
-        System.out.println(anagram.isAnagram("racecar", "carrace"));
-
-        System.out.println(anagram.isAnagram("jar", "jam"));
     }
 
 }
