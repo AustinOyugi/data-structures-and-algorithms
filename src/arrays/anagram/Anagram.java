@@ -1,7 +1,4 @@
-package arrays;
-
-import java.util.HashMap;
-import java.util.Map;
+package arrays.anagram;
 
 /*
    @author Austin Oyugi
@@ -21,14 +18,10 @@ public class Anagram {
 
     public boolean isAnagram(String s, String t) {
 
-        /*
-            If the lengths are not equal, then by definition it fails the anagram check
-         */
+        // If the lengths are not equal, then by definition it fails the anagram check
         if (s.length() != t.length()) return false;
 
-        /*
-            We create an array with zeros for all the 26 alphabetic characters
-         */
+        // We create an array with zeros for all the 26 alphabetic characters
         int[] store = new int[26];
 
         for (int i = 0; i < s.length(); i++) {
@@ -58,33 +51,7 @@ public class Anagram {
          */
         for (int n : store) if (n != 0) return false;
 
-        /*
-            Agree that the 2 strings are anagram
-         */
+        // Agree that the 2 strings are anagram
         return true;
     }
-
-    public boolean isAnagram2(String s, String t) {
-        var sChars = s.toCharArray();
-        var tChars = t.toCharArray();
-
-        if (sChars.length != tChars.length) return false;
-
-        Map<String, Integer> sCharsMap = new HashMap<>();
-        fillMap(sCharsMap, sChars);
-
-        Map<String, Integer> tCharsMap = new HashMap<>();
-        fillMap(tCharsMap, tChars);
-
-        return sCharsMap.equals(tCharsMap);
-    }
-
-    public void fillMap(Map<String, Integer> objectMap, char[] chars) {
-        for (char sChar : chars) {
-            Integer currentValue = objectMap.putIfAbsent(String.valueOf(sChar), 1);
-            if (currentValue != null)
-                objectMap.computeIfPresent(String.valueOf(sChar), (k, v) -> v + 1);
-        }
-    }
-
 }
