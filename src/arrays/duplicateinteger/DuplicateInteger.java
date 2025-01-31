@@ -22,7 +22,7 @@ public class DuplicateInteger {
             numsSet.add(num);
         }
 
-        // If the length is not equal then a duplicate must have been found
+        // If the lengths are not equal then a duplicate must have been found
         return nums.length != numsSet.size();
     }
 
