@@ -6,7 +6,7 @@ type void struct{}
 
 var placeholder void
 
-func duplicateInteger(arr []int) bool {
+func hasDuplicates(arr []int) bool {
 
 	// Set is a data structure that does not allow duplicates
 	// When you give it a duplicate value only the previous reference will remain
@@ -26,5 +26,5 @@ func duplicateInteger(arr []int) bool {
 
 func main() {
 	// Expect false
-	fmt.Printf("Contains duplicate %v\n", duplicateInteger([]int{1, 2, 3, 4, 5}))
+	fmt.Printf("Contains duplicate %v\n", hasDuplicates([]int{1, 2, 3, 4, 5}))
 }
