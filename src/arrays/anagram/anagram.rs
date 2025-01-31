@@ -47,5 +47,6 @@ fn is_anagram(s: &str, t: &str) -> bool {
 }
 
 pub fn main(){
+    // Expect true
     println!("Is anagram {}", is_anagram("racecar", "carrace"))
 }

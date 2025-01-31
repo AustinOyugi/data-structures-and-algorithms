@@ -8,8 +8,8 @@ package arrays.anagram;
 public class Anagram {
 
     public static void main(String[] args) {
-        Anagram anagram = new Anagram();
-        System.out.println(anagram.isAnagram("racecar", "carrace"));
+        // Expect true
+        System.out.println(new Anagram().isAnagram("racecar", "carrace"));
     }
 
     public boolean isAnagram(String s, String t) {

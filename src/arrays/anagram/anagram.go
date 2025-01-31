@@ -41,5 +41,7 @@ func isAnagram(s string, t string) bool {
 }
 
 func main() {
+
+	// Expect true
 	fmt.Printf("Is anagram %v\n", isAnagram("racecar", "carrace"))
 }
