@@ -27,10 +27,7 @@ public class DuplicateInteger {
     }
 
     public static void main(String[] args) {
-
-        int[] test1 = {1, 2, 3, 4, 5};
-
         // Expect false
-        System.out.println("Has duplicates " + hasDuplicates(test1));
+        System.out.println("Has duplicates " + hasDuplicates(new int[]{1, 2, 3, 4, 5}));
     }
 }

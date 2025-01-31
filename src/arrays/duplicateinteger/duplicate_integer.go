@@ -25,5 +25,6 @@ func duplicateInteger(arr []int) bool {
 }
 
 func main() {
+	// Expect false
 	fmt.Printf("Contains duplicate %v\n", duplicateInteger([]int{1, 2, 3, 4, 5}))
 }
