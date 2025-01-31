@@ -31,14 +31,9 @@ fn is_anagram(s: &str, t: &str) -> bool {
 
     // Confirm if everything matched, in case there was a mismatch
     // we should have at least 1 value that is not a zero
-    for i in 0 ..anagram.len() {
-        match anagram.get(i) {
-            Some(val) => {
-                if  *val != 0 {
-                    return false
-                }
-            },
-            None => {println!("Char not found!")}
+    for val in anagram {
+        if  val != 0 {
+            return false
         }
     }
 
