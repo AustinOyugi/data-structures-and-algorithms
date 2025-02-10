@@ -13,13 +13,10 @@ public class TwoSum {
 
     public static void main(String[] args) {
         TwoSum twoSum = new TwoSum();
-
         //Expect [0,1]
         System.out.println(Arrays.toString(twoSum.twoSum(new int[]{3, 4, 5, 6}, 7)));
-
         //Expect[0,2]
         System.out.println(Arrays.toString(twoSum.twoSum(new int[]{4, 5, 6}, 10)));
-
         //Expect [0,1]
         System.out.println(Arrays.toString(twoSum.twoSum(new int[]{5, 5}, 10)));
     }
@@ -31,6 +28,8 @@ public class TwoSum {
      */
     public int[] twoSum(int[] nums, int target) {
 
+        // At this point we want to store the remainder of the current index
+        // We can only store n reminders
         Map<Integer, Integer> indexRemainderMatcher = new HashMap<>();
 
         /*
@@ -38,30 +37,25 @@ public class TwoSum {
          */
         for (int i = 0; i < nums.length; i++) {
 
-            /*
-                If we have the value as a key in the map, we know that the value is a remainder
-                of another values 0(1)
-             */
+            // If we have the value as a key in the map, we know that the value is a remainder
+            // of another value
+            // remember we store the index as the value
             Integer availableKeyThatIsARemainder = indexRemainderMatcher.get(nums[i]);
             if (availableKeyThatIsARemainder != null) {
+
+                // We return the indexes and not the actual value
+                // the retrieved index should be the smallest
                 return new int[]{availableKeyThatIsARemainder, i};
             }
 
-            /*
-                We calculate the remainder as that is the important factor
-             */
+            // We calculate the remainder as that is the important factor
             int remainder = target - nums[i];
 
-            /*
-                We store the remainder as key which we can use to resolve the pair in the next iteration
-                O(1)
-             */
+            // We store the remainder as key which we can use to resolve the pair in the next iteration
             indexRemainderMatcher.put(remainder, i);
         }
 
-        /*
-            Return an empty array if not found
-         */
+        // Return an empty array if not found
         return new int[]{};
     }
 }
