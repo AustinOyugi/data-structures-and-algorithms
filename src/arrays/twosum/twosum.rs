@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-fn two_sum( nums: &[u8], target: u8) -> [u8; 2]{
+fn two_sum( nums: &[i16], target: i16) -> [u8; 2]{
 
     // At this point we want to store the remainder of the current index
     // We can only store n reminders
@@ -21,7 +21,7 @@ fn two_sum( nums: &[u8], target: u8) -> [u8; 2]{
             },
             None => {
                 // We calculate the remainder as that is the important factor
-                let reminder = target - value;
+                let reminder : i16 = target - value;
 
                 // We store the remainder as key which we can use to resolve the pair in the next iteration
                 index_remainder_matcher.insert(reminder,index as u8);
