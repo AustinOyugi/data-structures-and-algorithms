@@ -1,4 +1,4 @@
-package arrays;
+package arrays.groupedanagram;
 
 import java.util.*;
 
