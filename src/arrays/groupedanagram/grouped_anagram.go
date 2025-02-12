@@ -16,7 +16,7 @@ func groupAnagram(strs []string) [][]string {
 	// Loop through all the strings available O(m)
 	for _, value := range strs {
 
-		// Create an array that will be used to hold the frequencies
+		// Create an array or zeros that will be used to hold the frequencies
 		var store [26]int
 
 		// Loop through all the string chars and extract each letter frequency
