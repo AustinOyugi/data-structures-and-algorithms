@@ -8,3 +8,4 @@ Follow the following order
    2. duplicate integer: easy
    3. twosum: easy
    4. grouped anagram: medium
+   5. top k frequent elements in list: medium
