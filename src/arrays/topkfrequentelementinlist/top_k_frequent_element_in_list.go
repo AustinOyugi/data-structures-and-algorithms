@@ -62,5 +62,5 @@ func main() {
 	fmt.Println(topKFrequent([]int{7, 7}, 1))
 
 	//Expect [1,2]
-	fmt.Println(topKFrequent([]int{1, 2}, 1))
+	fmt.Println(topKFrequent([]int{1, 2}, 2))
 }
