@@ -19,7 +19,6 @@ public class StringEncodeAndDecode {
         System.out.println(encodeAndDecode.decode(
                 encodeAndDecode.encode(List.of("neet", "code", "love", "you"))));
 
-
         //Expect the same string
         System.out.println(encodeAndDecode.decode(
                 encodeAndDecode.encode(List.of("we", "say", ":", "yes"))));
@@ -33,13 +32,7 @@ public class StringEncodeAndDecode {
                 encodeAndDecode.encode(List.of())));
     }
 
-    /*
-            If empty
-
-            ""
-
-            0::
-     */
+    // If empty "" => 0::
     public String encode(List<String> strs) {
         if (strs.isEmpty()) return null;
         return strs.stream().map(str -> str.length() + "::" + str)
