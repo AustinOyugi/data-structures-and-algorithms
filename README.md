@@ -4,8 +4,9 @@ Decided to group the most common questions in DSA according to topic. All answer
 Follow the following order
 
 1. Arrays:
-   1. anagram: easy
-   2. duplicate integer: easy
-   3. twosum: easy
-   4. grouped anagram: medium
-   5. top k frequent elements in list: medium
+   1. Anagram: easy
+   2. Duplicate integer: easy
+   3. TwoSum: easy
+   4. Grouped anagram: medium
+   5. Top k frequent elements in list: medium
+   6. Encode and Decode Strings: medium
