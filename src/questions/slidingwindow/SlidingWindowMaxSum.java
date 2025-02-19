@@ -1,4 +1,4 @@
-package slidingwindow;
+package questions.slidingwindow;
 
 /*
    @author Austin Oyugi

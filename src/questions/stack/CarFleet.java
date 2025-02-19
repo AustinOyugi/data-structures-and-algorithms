@@ -1,4 +1,4 @@
-package stack;
+package questions.stack;
 
 import java.util.ArrayList;
 import java.util.Comparator;

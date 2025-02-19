@@ -1,4 +1,4 @@
-package stack;
+package questions.stack;
 
 import java.util.Stack;
 
@@ -66,15 +66,15 @@ public class ReversePolishNotation {
 
             try {
                 Integer operand = Integer.parseInt(element);
-                // Add the element to a stack yet to be calculated
+                // Add the element to a questions.stack yet to be calculated
                 collectionStack.push(operand);
             } catch (Exception ignored) {
 
                 // Confirms that the element is operator
-                // Thus we can  start working on the last 2 elements of the collection stack
+                // Thus we can  start working on the last 2 elements of the collection questions.stack
 
-                // Fill the evaluation stack with the expected calculation
-                // Pushing to a stack also makes sure the order is correct
+                // Fill the evaluation questions.stack with the expected calculation
+                // Pushing to a questions.stack also makes sure the order is correct
                 Stack<Integer> evaluationStack = new Stack<>();
                 evaluationStack.push(collectionStack.pop());
                 evaluationStack.push(collectionStack.pop());

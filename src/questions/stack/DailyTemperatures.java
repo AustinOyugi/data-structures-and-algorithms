@@ -1,4 +1,4 @@
-package stack;
+package questions.stack;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -54,11 +54,11 @@ public class DailyTemperatures {
                     // which cancels out the initial base temperature
                     results[indexKey] = temperatureValues.size();
 
-                    // remove the temp stack from the map because we already found a warmer temp
+                    // remove the temp questions.stack from the map because we already found a warmer temp
                     // this is to improve the search of the next temp
                     indexTemperatureValueMap.remove(indexKey);
                 } else {
-                    // We add the new temp to the stack
+                    // We add the new temp to the questions.stack
                     temperatureValues.push(temperature);
                     indexTemperatureValueMap.put(indexKey, temperatureValues);
                 }

@@ -1,6 +1,6 @@
-package binarysearch;
+package questions.binarysearch;
 
-import static binarysearch.BinarySearch.search;
+import static questions.binarysearch.BinarySearch.search;
 
 class Matrix2DSearch {
     public static boolean searchMatrix(int[][] matrix, int target) {

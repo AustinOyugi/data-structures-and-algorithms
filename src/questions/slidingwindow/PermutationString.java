@@ -1,4 +1,4 @@
-package slidingwindow;
+package questions.slidingwindow;
 
 //https://neetcode.io/problems/permutation-string
 class PermutationString {

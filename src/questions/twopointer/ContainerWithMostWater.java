@@ -1,4 +1,4 @@
-package twosum;
+package questions.twopointer;
 
 /*
 Input: height = [1,7,2,5,4,7,3,6]

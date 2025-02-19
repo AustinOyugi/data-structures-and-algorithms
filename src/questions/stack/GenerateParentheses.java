@@ -1,4 +1,4 @@
-package stack;
+package questions.stack;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +50,7 @@ public class GenerateParentheses {
 
             backtrack(n, openN + 1, closedN, stack, res);
 
-            // We pop to clean up the stack as we are done with the backtracking.
+            // We pop to clean up the questions.stack as we are done with the backtracking.
             stack.pop();
         }
 
@@ -62,7 +62,7 @@ public class GenerateParentheses {
             stack.push(')');
             backtrack(n, openN, closedN + 1, stack, res);
 
-            // We pop to clean up the stack as we are done with the backtracking.
+            // We pop to clean up the questions.stack as we are done with the backtracking.
             stack.pop();
         }
     }

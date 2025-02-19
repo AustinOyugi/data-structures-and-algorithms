@@ -1,4 +1,4 @@
-package stack;
+package questions.stack;
 
 import java.util.Arrays;
 import java.util.Stack;
@@ -31,7 +31,7 @@ public class DailyTemperaturesImproved {
         //Also because we expect  a fixed length of values
         int[] results = new int[temperatures.length];
 
-        // We store the pair values in a stack
+        // We store the pair values in a questions.stack
         // i.e (temp, array index)
         //We'll use the array index to calculate the difference
         Stack<int[]> evaluationStack = new Stack<>();
@@ -48,7 +48,7 @@ public class DailyTemperaturesImproved {
 
                 // If the current index temp is greater than the top element temp
                 while (!evaluationStack.isEmpty() && currentTemp > topElement[0]) {
-                    // We remove the value from the top of the stack
+                    // We remove the value from the top of the questions.stack
                     evaluationStack.pop();
 
                     int topElementIndex = topElement[1];
@@ -61,9 +61,9 @@ public class DailyTemperaturesImproved {
                 }
             }
 
-            // We add the current temp to the top of the stack
+            // We add the current temp to the top of the questions.stack
             // At this point we know that the current temp
-            // Is the smallest value in the stack
+            // Is the smallest value in the questions.stack
             evaluationStack.push(new int[]{currentTemp, i});
         }
 

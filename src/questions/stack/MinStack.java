@@ -1,4 +1,4 @@
-package stack;
+package questions.stack;
 
 import java.util.Comparator;
 import java.util.EmptyStackException;

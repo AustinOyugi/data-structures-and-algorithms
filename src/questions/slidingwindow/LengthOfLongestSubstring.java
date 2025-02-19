@@ -1,4 +1,4 @@
-package slidingwindow;
+package questions.slidingwindow;
 
 //https://neetcode.io/problems/longest-substring-without-duplicates
 class LengthOfLongestSubstring {

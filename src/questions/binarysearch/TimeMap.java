@@ -1,4 +1,4 @@
-package binarysearch;
+package questions.binarysearch;
 
 import java.util.SortedMap;
 import java.util.TreeMap;

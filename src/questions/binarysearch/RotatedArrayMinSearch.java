@@ -1,4 +1,4 @@
-package binarysearch;
+package questions.binarysearch;
 
 class RotatedArrayMinSearch {
 

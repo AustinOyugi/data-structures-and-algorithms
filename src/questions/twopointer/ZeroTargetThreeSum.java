@@ -1,4 +1,4 @@
-package twosum;
+package questions.twopointer;
 
 import java.util.*;
 
