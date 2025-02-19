@@ -1,4 +1,4 @@
-package arrays.duplicateinteger;
+package questions.arrays.duplicateinteger;
 
 
 import java.util.HashSet;

@@ -1,4 +1,4 @@
-package arrays.productofarrayexceptself;
+package questions.arrays.productofarrayexceptself;
 
 import java.util.Arrays;
 

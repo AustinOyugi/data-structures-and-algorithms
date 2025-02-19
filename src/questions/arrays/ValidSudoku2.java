@@ -1,4 +1,4 @@
-package arrays;
+package questions.arrays;
 
 import java.util.HashMap;
 import java.util.HashSet;

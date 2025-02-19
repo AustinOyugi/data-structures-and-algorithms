@@ -46,7 +46,7 @@ fn group_anagram(strs: &[&str]) -> Vec<Vec<String>> {
         }
     }
 
-    // Create the result object, array of arrays
+    // Create the result object, array of questions.arrays
     let mut result : Vec<Vec<String>> = Vec::new();
 
     // Fill the result with the matched strings

@@ -3,6 +3,7 @@
 Decided to group the most common questions in DSA according to topic. All answers are in Golang, Java or Rust
 Follow the following order
 
+Go the questions package
 1. Arrays:
    1. Anagram: Easy
    2. Duplicate integer: Easy

@@ -1,4 +1,4 @@
-package arrays.twosum;
+package questions.arrays.twosum;
 
 import java.util.Arrays;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package arrays.topkfrequentelementinlist;
+package questions.arrays.topkfrequentelementinlist;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;

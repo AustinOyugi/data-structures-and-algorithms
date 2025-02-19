@@ -1,4 +1,4 @@
-package arrays;
+package datastructures;
 
 /*
    @author Austin Oyugi

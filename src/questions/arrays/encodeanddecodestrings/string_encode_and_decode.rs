@@ -1,7 +1,7 @@
 
 fn encode(strs : &[&str]) -> String {
 
-    // Always check for empty in arrays
+    // Always check for empty in questions.arrays
     if  strs.len() == 0 {
         return String::from("");
     }

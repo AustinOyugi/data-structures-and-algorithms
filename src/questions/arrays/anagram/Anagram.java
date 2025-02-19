@@ -1,4 +1,4 @@
-package arrays.anagram;
+package questions.arrays.anagram;
 
 /*
    @author Austin Oyugi

@@ -1,4 +1,4 @@
-package arrays.encodeanddecodestrings;
+package questions.arrays.encodeanddecodestrings;
 
 import java.util.ArrayList;
 import java.util.Arrays;
