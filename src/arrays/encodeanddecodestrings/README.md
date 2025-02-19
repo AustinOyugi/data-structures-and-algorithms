@@ -26,7 +26,7 @@ Output: ["we","say",":","yes"]
 * ``0 <= strs[i].length < 200``
 * ``strs[i]`` contains only UTF-8 characters.
 
-
 ### Recommended Time & Space Complexity
+
 You should aim for a solution with ``O(m)`` time and ``O(1)`` space for each ``encode()`` and ``decode()`` call,
 where ``m`` is the sum of lengths of all the strings.
