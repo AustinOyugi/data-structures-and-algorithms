@@ -31,5 +31,13 @@ func productOfArrayExceptSelf(arr []int) []int {
 }
 
 func main() {
+
+	//Expect [24, 12, 8, 6]
 	fmt.Println(productOfArrayExceptSelf([]int{1, 2, 3, 4}))
+
+	//Expect [48,24,12,8]
+	fmt.Println(productOfArrayExceptSelf([]int{1, 2, 4, 6}))
+
+	//Expect [0,-6,0,0,0]
+	fmt.Println(productOfArrayExceptSelf([]int{-1, 0, 1, 2, 3}))
 }
